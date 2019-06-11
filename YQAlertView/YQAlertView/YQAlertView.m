@@ -11,13 +11,13 @@
 @implementation YQAlertView
 
 
-+ (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message actionArray:(NSArray *)actionArr completion:(void (^)(NSInteger actionIndex))completion {
++ (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message actionArray:(NSArray * _Nullable)actionArr completion:(void (^)(NSInteger actionIndex))completion {
     
     YQAlertView *alertView = [[YQAlertView alloc] initWithFrame:UIScreen.mainScreen.bounds];
     alertView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     alertView.isAutoCloseWhenTapAction = YES;
     //
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, alertView.frame.size.width-100, alertView.frame.size.height-160)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, alertView.frame.size.width-80, alertView.frame.size.height-160)];
     view.layer.cornerRadius = 6;
     view.layer.masksToBounds = YES;
     view.backgroundColor = UIColor.whiteColor;
@@ -64,6 +64,11 @@
         view.center = CGPointMake(alertView.frame.size.width/2, alertView.frame.size.height/2);
         return alertView;
     }
+    //
+    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)-0.5, view.frame.size.width, 0.5)];
+    line2.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
+    [view addSubview:line2];
+    //
     alertView.actionButtonArr = [NSMutableArray new];
     CGFloat btnWidth = view.frame.size.width/actionArr.count;
     for (NSInteger i=0; i<actionArr.count; i++) {
@@ -74,6 +79,11 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:17];
         [view addSubview:btn];
         [alertView.actionButtonArr addObject:btn];
+        if (i<actionArr.count-1) {
+            UIView *line = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(btn.frame)-0.5, btn.frame.origin.y, 0.5, btn.frame.size.height)];
+            line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
+            [view addSubview:line];
+        }
         //
         btn.tapAction = ^(YQButton *sender) {
             if (completion) {

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 用户某按钮后，是否自动关闭视图，默认为YES
 @property (assign, nonatomic) BOOL isAutoCloseWhenTapAction;
 
-+ (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message actionArray:(NSArray *)actionArr completion:(void (^)(NSInteger actionIndex))completion;
++ (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message actionArray:(NSArray * _Nullable)actionArr completion:(void (^)(NSInteger actionIndex))completion;
 
 
 @end
