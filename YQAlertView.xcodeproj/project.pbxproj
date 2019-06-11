@@ -13,9 +13,16 @@
 		4D237BD922AF9B80007BE506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D237BD822AF9B80007BE506 /* Assets.xcassets */; };
 		4D237BDC22AF9B80007BE506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D237BDA22AF9B80007BE506 /* LaunchScreen.storyboard */; };
 		4D237BDF22AF9B80007BE506 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D237BDE22AF9B80007BE506 /* main.m */; };
+		4D237BE822AF9BA1007BE506 /* YQAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D237BE722AF9BA1007BE506 /* YQAlertView.m */; };
+		4D237BEE22AF9DA7007BE506 /* icon_duigou@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D237BEA22AF9DA7007BE506 /* icon_duigou@3x.png */; };
+		4D237BEF22AF9DA7007BE506 /* icon_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D237BEB22AF9DA7007BE506 /* icon_close@3x.png */; };
+		4D237BF022AF9DA7007BE506 /* icon_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D237BEC22AF9DA7007BE506 /* icon_close@2x.png */; };
+		4D237BF122AF9DA7007BE506 /* icon_duigou@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D237BED22AF9DA7007BE506 /* icon_duigou@2x.png */; };
+		8C7314891443442BAB58B12E /* libPods-YQAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B2899FDE0018D1924852A /* libPods-YQAlertView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46A0A0A1157EB3F83E880A88 /* Pods-YQAlertView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQAlertView.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQAlertView/Pods-YQAlertView.release.xcconfig"; sourceTree = "<group>"; };
 		4D237BCC22AF9B7B007BE506 /* YQAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D237BCF22AF9B7B007BE506 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D237BD022AF9B7B007BE506 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +33,14 @@
 		4D237BDB22AF9B80007BE506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D237BDD22AF9B80007BE506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D237BDE22AF9B80007BE506 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D237BE622AF9BA1007BE506 /* YQAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQAlertView.h; sourceTree = "<group>"; };
+		4D237BE722AF9BA1007BE506 /* YQAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQAlertView.m; sourceTree = "<group>"; };
+		4D237BEA22AF9DA7007BE506 /* icon_duigou@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_duigou@3x.png"; sourceTree = "<group>"; };
+		4D237BEB22AF9DA7007BE506 /* icon_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@3x.png"; sourceTree = "<group>"; };
+		4D237BEC22AF9DA7007BE506 /* icon_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close@2x.png"; sourceTree = "<group>"; };
+		4D237BED22AF9DA7007BE506 /* icon_duigou@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_duigou@2x.png"; sourceTree = "<group>"; };
+		90A6B362BB828B72EFD44DBC /* Pods-YQAlertView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQAlertView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YQAlertView/Pods-YQAlertView.debug.xcconfig"; sourceTree = "<group>"; };
+		AE5B2899FDE0018D1924852A /* libPods-YQAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YQAlertView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C7314891443442BAB58B12E /* libPods-YQAlertView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +60,8 @@
 			children = (
 				4D237BCE22AF9B7B007BE506 /* YQAlertView */,
 				4D237BCD22AF9B7B007BE506 /* Products */,
+				DD0FCD5CEB7BF991F8974024 /* Pods */,
+				E48A2C7496FD856996045F30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +76,8 @@
 		4D237BCE22AF9B7B007BE506 /* YQAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				4D237BE522AF9B8C007BE506 /* YQAlertView */,
+				4D237BE922AF9DA7007BE506 /* Images */,
 				4D237BCF22AF9B7B007BE506 /* AppDelegate.h */,
 				4D237BD022AF9B7B007BE506 /* AppDelegate.m */,
 				4D237BD222AF9B7B007BE506 /* ViewController.h */,
@@ -71,6 +91,43 @@
 			path = YQAlertView;
 			sourceTree = "<group>";
 		};
+		4D237BE522AF9B8C007BE506 /* YQAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				4D237BE622AF9BA1007BE506 /* YQAlertView.h */,
+				4D237BE722AF9BA1007BE506 /* YQAlertView.m */,
+			);
+			path = YQAlertView;
+			sourceTree = "<group>";
+		};
+		4D237BE922AF9DA7007BE506 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4D237BEA22AF9DA7007BE506 /* icon_duigou@3x.png */,
+				4D237BEB22AF9DA7007BE506 /* icon_close@3x.png */,
+				4D237BEC22AF9DA7007BE506 /* icon_close@2x.png */,
+				4D237BED22AF9DA7007BE506 /* icon_duigou@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		DD0FCD5CEB7BF991F8974024 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90A6B362BB828B72EFD44DBC /* Pods-YQAlertView.debug.xcconfig */,
+				46A0A0A1157EB3F83E880A88 /* Pods-YQAlertView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E48A2C7496FD856996045F30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE5B2899FDE0018D1924852A /* libPods-YQAlertView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,6 +135,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D237BE222AF9B80007BE506 /* Build configuration list for PBXNativeTarget "YQAlertView" */;
 			buildPhases = (
+				C37A385587756A12BC946FC0 /* [CP] Check Pods Manifest.lock */,
 				4D237BC822AF9B7B007BE506 /* Sources */,
 				4D237BC922AF9B7B007BE506 /* Frameworks */,
 				4D237BCA22AF9B7B007BE506 /* Resources */,
@@ -129,12 +187,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D237BDC22AF9B80007BE506 /* LaunchScreen.storyboard in Resources */,
+				4D237BEE22AF9DA7007BE506 /* icon_duigou@3x.png in Resources */,
 				4D237BD922AF9B80007BE506 /* Assets.xcassets in Resources */,
+				4D237BEF22AF9DA7007BE506 /* icon_close@3x.png in Resources */,
+				4D237BF022AF9DA7007BE506 /* icon_close@2x.png in Resources */,
 				4D237BD722AF9B7B007BE506 /* Main.storyboard in Resources */,
+				4D237BF122AF9DA7007BE506 /* icon_duigou@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C37A385587756A12BC946FC0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YQAlertView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D237BC822AF9B7B007BE506 /* Sources */ = {
@@ -142,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D237BD422AF9B7B007BE506 /* ViewController.m in Sources */,
+				4D237BE822AF9BA1007BE506 /* YQAlertView.m in Sources */,
 				4D237BDF22AF9B80007BE506 /* main.m in Sources */,
 				4D237BD122AF9B7B007BE506 /* AppDelegate.m in Sources */,
 			);
@@ -283,6 +367,7 @@
 		};
 		4D237BE322AF9B80007BE506 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90A6B362BB828B72EFD44DBC /* Pods-YQAlertView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +385,7 @@
 		};
 		4D237BE422AF9B80007BE506 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A0A0A1157EB3F83E880A88 /* Pods-YQAlertView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

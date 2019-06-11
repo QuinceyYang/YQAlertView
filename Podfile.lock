@@ -1,0 +1,16 @@
+PODS:
+  - YQButton (1.2)
+
+DEPENDENCIES:
+  - YQButton (~> 1.2)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - YQButton
+
+SPEC CHECKSUMS:
+  YQButton: 3d4aaff9eb2f939976759f1de37f436cf68452d7
+
+PODFILE CHECKSUM: 9861c6479c2e0858e77957bad26d3dc002d520da
+
+COCOAPODS: 1.5.0
