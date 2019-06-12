@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "YQAlertingView"
-  s.version      = "0.0.1"
+  s.version      = "1.0"
   s.summary      = "一个简单易用的提示框."
 
   # This description is used to generate tags and improve search results.
