@@ -22,6 +22,7 @@
     view.layer.masksToBounds = YES;
     view.backgroundColor = UIColor.whiteColor;
     [alertView addSubview:view];
+    alertView.contentView = view;
     //
     UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(20, 21, view.frame.size.width-40, 22)];
     titleLab.text = title;
@@ -44,11 +45,11 @@
     line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
     [view addSubview:line];
     //
-    UIView *bodyView = [[UIView alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(line.frame), view.frame.size.width-20, 120)];
+    UIView *bodyView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(line.frame), view.frame.size.width, 120)];
     //bodyView.backgroundColor = UIColor.whiteColor;
     [view addSubview:bodyView];
     //
-    UILabel *messageLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, bodyView.frame.size.width, 10000)];
+    UILabel *messageLab = [[UILabel alloc] initWithFrame:CGRectMake(12, 12, bodyView.frame.size.width-24, 10000)];
     messageLab.numberOfLines = 0;
     messageLab.text = message ?: @" ";
     messageLab.textColor = [UIColor colorWithRed:0x55/255.0 green:0x55/255.0 blue:0x55/255.0 alpha:1.0];
@@ -57,7 +58,7 @@
     [bodyView addSubview:messageLab];
     alertView.messageLab = messageLab;
     //
-    bodyView.frame = CGRectMake(bodyView.frame.origin.x, bodyView.frame.origin.y, bodyView.frame.size.width, CGRectGetMaxY(messageLab.frame)+10);
+    bodyView.frame = CGRectMake(bodyView.frame.origin.x, bodyView.frame.origin.y, bodyView.frame.size.width, CGRectGetMaxY(messageLab.frame)+12);
     view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, CGRectGetMaxY(bodyView.frame));
     //
     if (actionArr==nil || actionArr.count<=0) {
@@ -105,6 +106,18 @@
     //
     view.center = CGPointMake(alertView.frame.size.width/2, alertView.frame.size.height/2);
     return alertView;
+}
+
+- (void)showOnView:(UIView *)view {
+    if (view == nil) {
+        return;
+    }
+    if (self.superview) {
+        [self removeFromSuperview];
+    }
+    self.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+    self.contentView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    [view addSubview:self];
 }
 
 /*

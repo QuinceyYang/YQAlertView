@@ -42,7 +42,7 @@
         YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
             //
         }];
-        [weakSelf.view.window addSubview:view];
+        [view showOnView:weakSelf.view];
     };
     //
     YQButton *btn3 = [[YQButton alloc] initWithFrame:CGRectMake(0, 285, 250, 100)];

@@ -15,12 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UILabel *titleLab;
 @property (strong, nonatomic) UILabel *messageLab;
+@property (strong, nonatomic) UIView * contentView;
 @property (strong, nonatomic) NSMutableArray <YQButton *> * actionButtonArr;
 /// 用户某按钮后，是否自动关闭视图，默认为YES
 @property (assign, nonatomic) BOOL isAutoCloseWhenTapAction;
 
 + (instancetype)alertViewWithTitle:(NSString *)title message:(NSString *)message actionArray:(NSArray * _Nullable)actionArr completion:(void (^)(NSInteger actionIndex))completion;
 
+- (void)showOnView:(UIView *)view;
 
 @end
 
