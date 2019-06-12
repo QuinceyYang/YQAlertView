@@ -49,7 +49,7 @@
     //btn.center = self.view.center;
     [self.view addSubview:btn3];
     btn3.tapAction = ^(YQButton *sender) {
-        NSArray *acionArr = @[@"取消",@"确定"];
+        NSArray *acionArr = @[@"取消",@"确定",@"其它"];
         YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
             //
         }];

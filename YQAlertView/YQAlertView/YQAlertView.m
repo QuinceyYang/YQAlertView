@@ -99,9 +99,15 @@
     alertView.separateLine2 = line2;
     //
     alertView.actionButtonArr = [NSMutableArray new];
-    CGFloat btnWidth = view.frame.size.width/actionArr.count;
     for (NSInteger i=0; i<actionArr.count; i++) {
-        YQButton *btn = [[YQButton alloc] initWithFrame:CGRectMake(i*btnWidth, CGRectGetMaxY(bodyView.frame), btnWidth, 50)];
+        YQButton *btn;
+        if (actionArr.count <= 2) {
+            CGFloat btnWidth = view.frame.size.width/actionArr.count;
+            btn = [[YQButton alloc] initWithFrame:CGRectMake(i*btnWidth, CGRectGetMaxY(bodyView.frame), btnWidth, 50)];
+        }
+        else {
+            btn = [[YQButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+i*50, view.frame.size.width, 50)];
+        }
         btn.tag = i;
         [btn setTitle:actionArr[i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor colorWithRed:0x22/255.0 green:0x22/255.0 blue:0x22/255.0 alpha:1.0] forState:UIControlStateNormal];
@@ -109,9 +115,18 @@
         [view addSubview:btn];
         [alertView.actionButtonArr addObject:btn];
         if (i<actionArr.count-1) {
-            UIView *line = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(btn.frame)-0.5, btn.frame.origin.y, 0.5, btn.frame.size.height)];
-            line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
-            [view addSubview:line];
+            if (actionArr.count <= 2) {
+                UIView *line = [[UIView alloc]initWithFrame:CGRectMake(btn.frame.size.width-0.5, 0, 0.5, btn.frame.size.height)];
+                line.tag = 101;
+                line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
+                [btn addSubview:line];
+            }
+            else {
+                UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, btn.frame.size.height-0.5, btn.frame.size.width, 0.5)];
+                line.tag = 101;
+                line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
+                [btn addSubview:line];
+            }
         }
         //
         btn.tapAction = ^(YQButton *sender) {
