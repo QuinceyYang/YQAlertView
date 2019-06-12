@@ -151,20 +151,13 @@
         return 0;
     }
 
-    CGSize textSize;
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
-    {
-        NSString* textContent = str;
-        NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
-        textStyle.alignment = NSTextAlignmentLeft;
-        
-        NSDictionary* textFontAttributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.blackColor, NSParagraphStyleAttributeName: textStyle};
-        
-        textSize = [textContent boundingRectWithSize: CGSizeMake(INFINITY, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes context: nil].size;
-    }
-    else {
-        textSize = [str sizeWithFont:font constrainedToSize:CGSizeMake(INFINITY, INFINITY) lineBreakMode:NSLineBreakByWordWrapping];
-    }
+    NSString* textContent = str;
+    NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+    textStyle.alignment = NSTextAlignmentLeft;
+    
+    NSDictionary* textFontAttributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.blackColor, NSParagraphStyleAttributeName: textStyle};
+    
+    CGSize textSize = [textContent boundingRectWithSize: CGSizeMake(INFINITY, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes context: nil].size;
     textSize = CGSizeMake(ceil(textSize.width), ceil(textSize.height));
 
     return textSize.width;
