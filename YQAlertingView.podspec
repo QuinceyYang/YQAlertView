@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 # s.description  = <<-DESC
 #                   DESC
 
-  s.homepage     = "https://github.com/QuinceyYang/YQAlertingView"
+  s.homepage     = "https://github.com/QuinceyYang/YQAlertView"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +79,7 @@ s.platform     = :ios, "8.0"
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/QuinceyYang/YQAlertingView.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/QuinceyYang/YQAlertView.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

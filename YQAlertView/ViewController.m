@@ -39,9 +39,10 @@
     [self.view addSubview:btn2];
     btn2.tapAction = ^(YQButton *sender) {
         NSArray *acionArr = @[@"确定"];
-        YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
+        YQAlertView *view = [YQAlertView alertViewWithTitle:nil message:@"很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
             //
         }];
+        [view.actionButtonArr.lastObject setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [view showOnView:weakSelf.view];
     };
     //
