@@ -15,11 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIView * contentView;
 @property (strong, nonatomic) UILabel *titleLab;
-/// title Label下面的分割线，默认hidden=YES
-@property (strong, nonatomic) UIView *separateLine1;
 @property (strong, nonatomic) UILabel *messageLab;
 /// message Label下面的分割线
-@property (strong, nonatomic) UIView *separateLine2;
+@property (strong, nonatomic) UIView *separateLine;
 @property (strong, nonatomic) NSMutableArray <YQButton *> * actionButtonArr;
 /// 用户某按钮后，是否自动关闭视图，默认为YES
 @property (assign, nonatomic) BOOL isAutoCloseWhenTapAction;

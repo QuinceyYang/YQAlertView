@@ -42,13 +42,7 @@
             [sender.superview.superview removeFromSuperview];
             [UIView commitAnimations];
         };
-        //
-        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLab.frame)+3, view.frame.size.width, 0.5)];
-        line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
-        [view addSubview:line];
-        alertView.separateLine1 = line;
-        alertView.separateLine1.hidden = YES;
-        tmpY = CGRectGetMaxY(line.frame);
+        tmpY = CGRectGetMaxY(titleLab.frame)+2;
     }
     else {
         //
@@ -96,20 +90,20 @@
         }
     }
     //
-    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+(title==nil?0:4.5), view.frame.size.width, 0.5)];
-    line2.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
-    [view addSubview:line2];
-    alertView.separateLine2 = line2;
+    UIView *separateLine = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+(title==nil?0:4.5), view.frame.size.width, 0.5)];
+    separateLine.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
+    [view addSubview:separateLine];
+    alertView.separateLine = separateLine;
     //
     alertView.actionButtonArr = [NSMutableArray new];
     for (NSInteger i=0; i<actionArr.count; i++) {
         YQButton *btn;
         if (actionArr.count <= 2) {
             CGFloat btnWidth = view.frame.size.width/actionArr.count;
-            btn = [[YQButton alloc] initWithFrame:CGRectMake(i*btnWidth, CGRectGetMaxY(line2.frame), btnWidth, 48)];
+            btn = [[YQButton alloc] initWithFrame:CGRectMake(i*btnWidth, CGRectGetMaxY(separateLine.frame), btnWidth, 48)];
         }
         else {
-            btn = [[YQButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(line2.frame)+i*50, view.frame.size.width, 48)];
+            btn = [[YQButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(separateLine.frame)+i*48, view.frame.size.width, 48)];
         }
         btn.tag = i;
         [btn setTitle:actionArr[i] forState:UIControlStateNormal];

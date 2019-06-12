@@ -54,7 +54,6 @@
             //
         }];
         [view.actionButtonArr.lastObject setTitleColor:[UIColor colorWithRed:0xff/255.0 green:0xa7/255.0 blue:0x26/255.0 alpha:1.0] forState:UIControlStateNormal];
-        //view.separateLine1.hidden = YES;
         [view showOnView:weakSelf.view.window];
     };
     //
@@ -69,7 +68,6 @@
             //
         }];
         [view.actionButtonArr.lastObject setTitleColor:[UIColor colorWithRed:0xff/255.0 green:0xa7/255.0 blue:0x26/255.0 alpha:1.0] forState:UIControlStateNormal];
-        view.separateLine1.hidden = YES;
         [view showOnView:weakSelf.view.window];
     };
 
