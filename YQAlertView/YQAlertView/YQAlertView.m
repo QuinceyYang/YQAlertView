@@ -11,7 +11,7 @@
 @implementation YQAlertView
 
 
-+ (instancetype)alertViewWithTitle:(NSString * _Nullable)title message:(NSString *)message actionArray:(NSArray * _Nullable)actionArr completion:(void (^)(NSInteger actionIndex))completion {
++ (instancetype)alertViewWithTitle:(NSString * _Nullable)title message:(NSString *)message actionArray:(NSArray * _Nullable)actionArr completion:(void (^ _Nullable)(NSInteger actionIndex))completion {
     
     YQAlertView *alertView = [[YQAlertView alloc] initWithFrame:UIScreen.mainScreen.bounds];
     alertView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
@@ -45,6 +45,7 @@
         UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 59.5, view.frame.size.width, 0.5)];
         line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
         [view addSubview:line];
+        alertView.separateLine1 = line;
     }
     else {
         //
@@ -67,24 +68,35 @@
     messageLab.textColor = [UIColor colorWithRed:0x55/255.0 green:0x55/255.0 blue:0x55/255.0 alpha:1.0];
     messageLab.font = [UIFont systemFontOfSize:16];
     [messageLab sizeToFit];
-    messageLab.frame = CGRectMake(hSpace, vSpace, bodyView.frame.size.width-2*hSpace, messageLab.frame.size.height);
+    messageLab.frame = CGRectMake((bodyView.frame.size.width-messageLab.frame.size.width)/2, vSpace, messageLab.frame.size.width, messageLab.frame.size.height);
     [bodyView addSubview:messageLab];
     alertView.messageLab = messageLab;
-    if ([YQAlertView yq_widthOfString:messageLab.text font:messageLab.font] < bodyView.frame.size.width-2*hSpace) {
-        messageLab.textAlignment = NSTextAlignmentCenter;
-    }
     //
     bodyView.frame = CGRectMake(bodyView.frame.origin.x, bodyView.frame.origin.y, bodyView.frame.size.width, CGRectGetMaxY(messageLab.frame)+vSpace);
     view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, CGRectGetMaxY(bodyView.frame));
     //
     if (actionArr==nil || actionArr.count<=0) {
-        view.center = CGPointMake(alertView.frame.size.width/2, alertView.frame.size.height/2);
-        return alertView;
+        if (title) {
+            view.center = CGPointMake(alertView.frame.size.width/2, alertView.frame.size.height/2);
+            return alertView;
+        }
+        else {
+            //update frames
+            view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+            messageLab.textColor = UIColor.whiteColor;
+            messageLab.frame = CGRectMake(15, 15, alertView.frame.size.width-60, 10000);
+            [messageLab sizeToFit];
+            view.frame = CGRectMake((alertView.frame.size.width-(messageLab.frame.size.width+2*15))/2, (alertView.frame.size.height-(messageLab.frame.size.height+2*15))/2, messageLab.frame.size.width+2*15, messageLab.frame.size.height+2*15);
+            bodyView.frame = view.bounds;
+            messageLab.center = CGPointMake(bodyView.frame.size.width/2, bodyView.frame.size.height/2);
+            return alertView;
+        }
     }
     //
     UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)-0.5, view.frame.size.width, 0.5)];
     line2.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
     [view addSubview:line2];
+    alertView.separateLine2 = line2;
     //
     alertView.actionButtonArr = [NSMutableArray new];
     CGFloat btnWidth = view.frame.size.width/actionArr.count;
@@ -124,6 +136,11 @@
     return alertView;
 }
 
++ (void)showMessage:(NSString *)message onView:(UIView *)view {
+    YQAlertView *alertView = [YQAlertView alertViewWithTitle:nil message:message actionArray:nil completion:nil];
+    [alertView showOnView:view];
+}
+
 - (void)showOnView:(UIView *)view {
     if (view == nil) {
         return;
@@ -134,6 +151,14 @@
     self.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
     self.contentView.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
     [view addSubview:self];
+    if (self.titleLab==nil && (self.actionButtonArr==nil || self.actionButtonArr.count<=0)) {
+        __weak __typeof(self)weakSelf = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView beginAnimations:nil context:nil];
+            [weakSelf removeFromSuperview];
+            [UIView commitAnimations];
+        });
+    }
 }
 
 /*
@@ -143,26 +168,5 @@
     // Drawing code
 }
 */
-
-#pragma mark - private
-+ (CGFloat)yq_widthOfString:(NSString *)str font:(UIFont *)font
-{
-    if (str==nil || font==nil) {
-        return 0;
-    }
-
-    NSString* textContent = str;
-    NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
-    textStyle.alignment = NSTextAlignmentLeft;
-    
-    NSDictionary* textFontAttributes = @{NSFontAttributeName: font, NSForegroundColorAttributeName: UIColor.blackColor, NSParagraphStyleAttributeName: textStyle};
-    
-    CGSize textSize = [textContent boundingRectWithSize: CGSizeMake(INFINITY, INFINITY)  options: NSStringDrawingUsesLineFragmentOrigin attributes: textFontAttributes context: nil].size;
-    textSize = CGSizeMake(ceil(textSize.width), ceil(textSize.height));
-
-    return textSize.width;
-}
-
-
 
 @end

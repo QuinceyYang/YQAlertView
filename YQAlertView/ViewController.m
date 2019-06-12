@@ -26,10 +26,7 @@
     //btn.center = self.view.center;
     [self.view addSubview:btn];
     btn.tapAction = ^(YQButton *sender) {
-        YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:nil completion:^(NSInteger actionIndex) {
-            //
-        }];
-        [weakSelf.view.window addSubview:view];
+        [YQAlertView showMessage:@"YQAlertView 是一个很好用的控件哦😯" onView:weakSelf.view.window];
     };
     //
     YQButton *btn2 = [[YQButton alloc] initWithFrame:CGRectMake(0, 175, 250, 100)];
@@ -57,6 +54,7 @@
             //
         }];
         [view.actionButtonArr.lastObject setTitleColor:[UIColor colorWithRed:0xff/255.0 green:0xa7/255.0 blue:0x26/255.0 alpha:1.0] forState:UIControlStateNormal];
+        view.separateLine1.hidden = YES;
         [view showOnView:weakSelf.view.window];
     };
 
