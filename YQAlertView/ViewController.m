@@ -55,7 +55,8 @@
         YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
             //
         }];
-        [weakSelf.view.window addSubview:view];
+        [view.actionButtonArr.lastObject setTitleColor:[UIColor colorWithRed:0xff/255.0 green:0xa7/255.0 blue:0x26/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [view showOnView:weakSelf.view.window];
     };
 
 }
