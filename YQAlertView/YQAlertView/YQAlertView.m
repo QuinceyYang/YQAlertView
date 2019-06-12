@@ -24,11 +24,12 @@
     [alertView addSubview:view];
     alertView.contentView = view;
     //
+    CGFloat tmpY = 0;
     if (title) {
         UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(40, 23, view.frame.size.width-80, 22)];
         titleLab.text = title;
         titleLab.textColor = [UIColor colorWithRed:0x22/255.0 green:0x22/255.0 blue:0x22/255.0 alpha:1.0];
-        titleLab.font = [UIFont systemFontOfSize:18];
+        titleLab.font = [UIFont boldSystemFontOfSize:18];
         titleLab.textAlignment = NSTextAlignmentCenter;
         [view addSubview:titleLab];
         alertView.titleLab = titleLab;
@@ -42,22 +43,23 @@
             [UIView commitAnimations];
         };
         //
-        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 57.5, view.frame.size.width, 0.5)];
+        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(titleLab.frame)+3, view.frame.size.width, 0.5)];
         line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
         [view addSubview:line];
         alertView.separateLine1 = line;
         alertView.separateLine1.hidden = YES;
+        tmpY = CGRectGetMaxY(line.frame);
     }
     else {
         //
     }
     //
-    UIView *bodyView = [[UIView alloc] initWithFrame:CGRectMake(0, title==nil?0:58, view.frame.size.width, 120)];
+    UIView *bodyView = [[UIView alloc] initWithFrame:CGRectMake(0, tmpY, view.frame.size.width, 120)];
     //bodyView.backgroundColor = UIColor.whiteColor;
     [view addSubview:bodyView];
     //
     CGFloat hSpace = 12;
-    CGFloat vSpace = 12;
+    CGFloat vSpace = 10;
     if (title == nil) {
         hSpace = 20;
         vSpace = 30;
@@ -94,7 +96,7 @@
         }
     }
     //
-    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+(title==nil?0:3.5), view.frame.size.width, 0.5)];
+    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+(title==nil?0:4.5), view.frame.size.width, 0.5)];
     line2.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
     [view addSubview:line2];
     alertView.separateLine2 = line2;
