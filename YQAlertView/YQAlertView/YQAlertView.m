@@ -25,7 +25,7 @@
     alertView.contentView = view;
     //
     if (title) {
-        UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(20, 21, view.frame.size.width-40, 22)];
+        UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(40, 23, view.frame.size.width-80, 22)];
         titleLab.text = title;
         titleLab.textColor = [UIColor colorWithRed:0x22/255.0 green:0x22/255.0 blue:0x22/255.0 alpha:1.0];
         titleLab.font = [UIFont systemFontOfSize:18];
@@ -42,16 +42,17 @@
             [UIView commitAnimations];
         };
         //
-        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 59.5, view.frame.size.width, 0.5)];
+        UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 57.5, view.frame.size.width, 0.5)];
         line.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
         [view addSubview:line];
         alertView.separateLine1 = line;
+        alertView.separateLine1.hidden = YES;
     }
     else {
         //
     }
     //
-    UIView *bodyView = [[UIView alloc] initWithFrame:CGRectMake(0, title==nil?0:60, view.frame.size.width, 120)];
+    UIView *bodyView = [[UIView alloc] initWithFrame:CGRectMake(0, title==nil?0:58, view.frame.size.width, 120)];
     //bodyView.backgroundColor = UIColor.whiteColor;
     [view addSubview:bodyView];
     //
@@ -93,7 +94,7 @@
         }
     }
     //
-    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)-0.5, view.frame.size.width, 0.5)];
+    UIView *line2 = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+(title==nil?0:3.5), view.frame.size.width, 0.5)];
     line2.backgroundColor = [UIColor colorWithRed:0xe0/255.0 green:0xe0/255.0 blue:0xe0/255.0 alpha:1.0];
     [view addSubview:line2];
     alertView.separateLine2 = line2;
@@ -103,10 +104,10 @@
         YQButton *btn;
         if (actionArr.count <= 2) {
             CGFloat btnWidth = view.frame.size.width/actionArr.count;
-            btn = [[YQButton alloc] initWithFrame:CGRectMake(i*btnWidth, CGRectGetMaxY(bodyView.frame), btnWidth, 50)];
+            btn = [[YQButton alloc] initWithFrame:CGRectMake(i*btnWidth, CGRectGetMaxY(line2.frame), btnWidth, 48)];
         }
         else {
-            btn = [[YQButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bodyView.frame)+i*50, view.frame.size.width, 50)];
+            btn = [[YQButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(line2.frame)+i*50, view.frame.size.width, 48)];
         }
         btn.tag = i;
         [btn setTitle:actionArr[i] forState:UIControlStateNormal];

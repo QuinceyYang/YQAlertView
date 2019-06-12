@@ -49,6 +49,21 @@
     //btn.center = self.view.center;
     [self.view addSubview:btn3];
     btn3.tapAction = ^(YQButton *sender) {
+        NSArray *acionArr = @[@"取消",@"确定"];
+        YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
+            //
+        }];
+        [view.actionButtonArr.lastObject setTitleColor:[UIColor colorWithRed:0xff/255.0 green:0xa7/255.0 blue:0x26/255.0 alpha:1.0] forState:UIControlStateNormal];
+        //view.separateLine1.hidden = YES;
+        [view showOnView:weakSelf.view.window];
+    };
+    //
+    YQButton *btn4 = [[YQButton alloc] initWithFrame:CGRectMake(0, 395, 250, 100)];
+    btn4.backgroundColor = UIColor.greenColor;
+    [btn4 setTitle:@"YQAlertView show 4" forState:UIControlStateNormal];
+    //btn.center = self.view.center;
+    [self.view addSubview:btn4];
+    btn4.tapAction = ^(YQButton *sender) {
         NSArray *acionArr = @[@"取消",@"确定",@"其它"];
         YQAlertView *view = [YQAlertView alertViewWithTitle:@"温馨提示" message:@"YQAlertView 是一个很好用的控件哦😯" actionArray:acionArr completion:^(NSInteger actionIndex) {
             //
